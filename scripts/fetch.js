@@ -1,26 +1,5 @@
 const fs = require('fs');
 
-const SECTOR_LIST = [
-  { code: 'BK0447', name: '半导体' },
-  { code: 'BK0493', name: '软件服务' },
-  { code: 'BK0900', name: '光伏设备' },
-  { code: 'BK0428', name: '电力' },
-  { code: 'BK0475', name: '银行' },
-  { code: 'BK0477', name: '证券' },
-  { code: 'BK0438', name: '医药商业' },
-  { code: 'BK0465', name: '汽车整车' },
-  { code: 'BK0729', name: '航天航空' },
-  { code: 'BK0910', name: '专用设备' },
-  { code: 'BK0433', name: '食品饮料' },
-  { code: 'BK0478', name: '通信设备' }
-];
-
-const INDEX_CODES = [
-  { code: '1.000001', name: '上证' },
-  { code: '0.399001', name: '深证' },
-  { code: '0.399006', name: '创业板' }
-];
-
 function pickStockPool(code) {
   if (!code || typeof code !== 'string') return false;
   const ok = ['600','601','603','605','000','001','002'];
@@ -32,25 +11,30 @@ function pickStockPool(code) {
 
 async function fetchJSON(url) {
   const res = await fetch(url, {
-    headers: { 'User-Agent': 'Mozilla/5.0', 'Referer': 'https://quote.eastmoney.com/' }
+    headers: {
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0 Safari/537.36',
+      'Referer': 'https://quote.eastmoney.com/',
+      'Accept': '*/*'
+    }
   });
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
 
 async function fetchIndex() {
-  const secids = INDEX_CODES.map(x => x.code).join(',');
+  const secids = '1.000001,0.399001,0.399006';
   const url = `https://push2.eastmoney.com/api/qt/ulist.np/get?secids=${secids}&fields=f2,f3,f4,f6,f12,f14`;
   try {
     const j = await fetchJSON(url);
     const list = (j.data && j.data.diff) || [];
+    const names = { '000001': '上证', '399001': '深证', '399006': '创业板' };
     const out = {};
     for (const it of list) {
-      const name = INDEX_CODES.find(x => x.code.endsWith(it.f12));
-      if (!name) continue;
-      out[name.name] = {
+      const n = names[it.f12];
+      if (!n) continue;
+      out[n] = {
         code: it.f12,
-        name: name.name,
+        name: n,
         price: it.f2 / 100,
         changePct: it.f3 / 100,
         change: it.f4 / 100,
@@ -61,6 +45,28 @@ async function fetchIndex() {
   } catch (e) {
     console.error('fetchIndex error:', e.message);
     return {};
+  }
+}
+
+async function fetchTopSectors() {
+  const url = 'https://push2.eastmoney.com/api/qt/clist/get?pn=1&pz=20&po=1&np=1&fltt=2&invt=2&fid=f3&fs=m:90+t:2&fields=f2,f3,f4,f5,f6,f8,f12,f14,f104,f105,f128,f136,f62';
+  try {
+    const j = await fetchJSON(url);
+    const list = (j.data && j.data.diff) || [];
+    return list.map(it => ({
+      code: it.f12,
+      name: it.f14,
+      changePct: it.f3,
+      turnover: it.f6,
+      upCount: it.f104,
+      downCount: it.f105,
+      leader: it.f128,
+      leaderChangePct: it.f136,
+      mainInflow: it.f62
+    }));
+  } catch (e) {
+    console.error('fetchTopSectors error:', e.message);
+    return [];
   }
 }
 
@@ -93,23 +99,6 @@ async function fetchSectorStocks(sectorCode) {
   }
 }
 
-async function fetchSectorInfo(sectorCode) {
-  const url = `https://push2.eastmoney.com/api/qt/stock/get?secid=90.${sectorCode}&fields=f43,f44,f45,f46,f47,f48,f60,f170,f104,f105`;
-  try {
-    const j = await fetchJSON(url);
-    if (!j.data) return null;
-    const d = j.data;
-    return {
-      changePct: d.f170 !== undefined ? d.f170 / 100 : 0,
-      turnover: d.f48 || 0,
-      upCount: d.f104 || 0,
-      downCount: d.f105 || 0
-    };
-  } catch (e) {
-    return null;
-  }
-}
-
 async function main() {
   console.log('开始抓取...');
   const result = {
@@ -120,29 +109,25 @@ async function main() {
 
   console.log('抓取指数:', Object.keys(result.indices).join(', '));
 
-  for (const sec of SECTOR_LIST) {
-    console.log('抓取板块:', sec.name);
-    const stocks = await fetchSectorStocks(sec.code);
-    const info = await fetchSectorInfo(sec.code);
-    if (stocks.length === 0) continue;
+  const topSectors = await fetchTopSectors();
+  console.log('获取到 ' + topSectors.length + ' 个热门板块');
 
-    const changePct = info ? info.changePct :
-      (stocks.reduce((a, b) => a + (b.changePct || 0), 0) / stocks.length);
-    const turnover = info ? info.turnover :
-      stocks.reduce((a, b) => a + (b.turnover || 0), 0);
-    const upCount = info ? info.upCount : stocks.filter(s => s.changePct > 0).length;
-    const downCount = info ? info.downCount : stocks.filter(s => s.changePct < 0).length;
+  for (const sec of topSectors.slice(0, 12)) {
+    console.log('抓取板块:', sec.name + ' (' + sec.code + ')');
+    const stocks = await fetchSectorStocks(sec.code);
+    console.log('  ' + sec.name + ' 抓到 ' + stocks.length + ' 只股票');
+    if (stocks.length === 0) continue;
 
     result.sectors.push({
       code: sec.code,
       name: sec.name,
-      changePct: Math.round(changePct * 100) / 100,
-      turnover: turnover,
-      upCount: upCount,
-      downCount: downCount,
-      leader: stocks[0] ? stocks[0].name : '',
-      leaderChangePct: stocks[0] ? stocks[0].changePct : 0,
-      mainInflow: stocks.reduce((a, b) => a + (b.mainInflow || 0), 0),
+      changePct: sec.changePct,
+      turnover: sec.turnover,
+      upCount: sec.upCount,
+      downCount: sec.downCount,
+      leader: sec.leader,
+      leaderChangePct: sec.leaderChangePct,
+      mainInflow: sec.mainInflow,
       stocks: stocks.slice(0, 10)
     });
   }
