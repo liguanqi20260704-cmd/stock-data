@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-09T07:05:49.704Z",
+  "updatedAt": "2026-10-09T14:19:44.457Z",
   "indices": {
     "上证": {
       "code": "000001",
@@ -26,5 +26,158 @@
       "turnover": 494823547448.06
     }
   },
-  "sectors": []
+  "sectors": [
+    {
+      "code": "BK1298",
+      "name": "文字媒体",
+      "changePct": 15,
+      "turnover": 2723010194,
+      "upCount": 2,
+      "downCount": 0,
+      "leader": "中文在线",
+      "leaderChangePct": 20.01,
+      "mainInflow": 519472336,
+      "stocks": [
+        {
+          "code": "603533",
+          "name": "掌阅科技",
+          "price": 0.2544,
+          "changePct": 0.0999,
+          "change": 0.0231,
+          "volume": 368144,
+          "turnover": 872887939,
+          "turnoverRate": 0.0839,
+          "volumeRatio": 0.0141,
+          "high": 0.2544,
+          "low": 0.2232,
+          "open": 0.231,
+          "prevClose": 0.23129999999999998,
+          "marketCap": 11165535482,
+          "floatCap": 11165535482,
+          "mainInflow": 135406050
+        }
+      ]
+    },
+    {
+      "code": "BK1431",
+      "name": "有机硅",
+      "changePct": 6.66,
+      "turnover": 5135782298,
+      "upCount": 9,
+      "downCount": 1,
+      "leader": "晨光新材",
+      "leaderChangePct": 10.03,
+      "mainInflow": 849066272,
+      "stocks": [
+        {
+          "code": "605399",
+          "name": "晨光新材",
+          "price": 0.1306,
+          "changePct": 0.1003,
+          "change": 0.011899999999999999,
+          "volume": 60711,
+          "turnover": 77810099,
+          "turnoverRate": 0.0195,
+          "volumeRatio": 0.011699999999999999,
+          "high": 0.1306,
+          "low": 0.11800000000000001,
+          "open": 0.1183,
+          "prevClose": 0.11869999999999999,
+          "marketCap": 4066509230,
+          "floatCap": 4062238610,
+          "mainInflow": 23499603
+        },
+        {
+          "code": "603155",
+          "name": "新亚强",
+          "price": 0.1543,
+          "changePct": 0.0998,
+          "change": 0.013999999999999999,
+          "volume": 297642,
+          "turnover": 452225096,
+          "turnoverRate": 0.065,
+          "volumeRatio": 0.0286,
+          "high": 0.1543,
+          "low": 0.13570000000000002,
+          "open": 0.1388,
+          "prevClose": 0.14029999999999998,
+          "marketCap": 7065255970,
+          "floatCap": 7065255970,
+          "mainInflow": 107831339
+        },
+        {
+          "code": "603260",
+          "name": "合盛硅业",
+          "price": 0.33039999999999997,
+          "changePct": 0.0546,
+          "change": 0.0171,
+          "volume": 189007,
+          "turnover": 620601371,
+          "turnoverRate": 0.016,
+          "volumeRatio": 0.034,
+          "high": 0.3348,
+          "low": 0.314,
+          "open": 0.3181,
+          "prevClose": 0.31329999999999997,
+          "marketCap": 39060117331,
+          "floatCap": 39060117331,
+          "mainInflow": 73550766
+        },
+        {
+          "code": "603281",
+          "name": "江瀚新材",
+          "price": 0.1895,
+          "changePct": 0.0441,
+          "change": 0.008,
+          "volume": 83606,
+          "turnover": 156857034,
+          "turnoverRate": 0.0161,
+          "volumeRatio": 0.0281,
+          "high": 0.1913,
+          "low": 0.18059999999999998,
+          "open": 0.183,
+          "prevClose": 0.1815,
+          "marketCap": 9828167985,
+          "floatCap": 9828167985,
+          "mainInflow": 1301354
+        },
+        {
+          "code": "002909",
+          "name": "集泰股份",
+          "price": 0.068,
+          "changePct": 0.018000000000000002,
+          "change": 0.0012,
+          "volume": 477023,
+          "turnover": 318539461.34,
+          "turnoverRate": 0.12539999999999998,
+          "volumeRatio": 0.0069,
+          "high": 0.0688,
+          "low": 0.0644,
+          "open": 0.0667,
+          "prevClose": 0.0668,
+          "marketCap": 2652000000,
+          "floatCap": 2586906204,
+          "mainInflow": -7284663
+        },
+        {
+          "code": "002211",
+          "name": "ST宏达",
+          "price": 0.037200000000000004,
+          "changePct": 0.0109,
+          "change": 0.0004,
+          "volume": 50495,
+          "turnover": 18417443.5,
+          "turnoverRate": 0.011699999999999999,
+          "volumeRatio": 0.016,
+          "high": 0.0373,
+          "low": 0.0356,
+          "open": 0.0368,
+          "prevClose": 0.0368,
+          "marketCap": 1608809898,
+          "floatCap": 1608809898,
+          "mainInflow": -1266869
+        }
+      ]
+    }
+  ]
 }
