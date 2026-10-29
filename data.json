@@ -1,183 +1,30 @@
 {
-  "updatedAt": "2026-10-28T13:29:24.814Z",
+  "updatedAt": "2026-10-29T06:42:44.904Z",
   "indices": {
     "上证": {
       "code": "000001",
       "name": "上证",
-      "price": 3681.47,
-      "changePct": 0.91,
-      "change": 33.17,
-      "turnover": 751019235601.9
+      "price": 3652.09,
+      "changePct": -0.8,
+      "change": -29.38,
+      "turnover": 651687916105
     },
     "深证": {
       "code": "399001",
       "name": "深证",
-      "price": 11473.18,
-      "changePct": 2.02,
-      "change": 227.45,
-      "turnover": 877468325783.7117
+      "price": 11163.7,
+      "changePct": -2.7,
+      "change": -309.48,
+      "turnover": 769466715076.4146
     },
     "创业板": {
       "code": "399006",
       "name": "创业板",
-      "price": 2634.76,
-      "changePct": 3.4,
-      "change": 86.61,
-      "turnover": 453965489884.53
+      "price": 2527.45,
+      "changePct": -4.07,
+      "change": -107.31,
+      "turnover": 386065274129.18
     }
   },
-  "sectors": [
-    {
-      "code": "BK1298",
-      "name": "文字媒体",
-      "changePct": 8.91,
-      "turnover": 4444307137,
-      "upCount": 2,
-      "downCount": 0,
-      "leader": "掌阅科技",
-      "leaderChangePct": 10.01,
-      "mainInflow": 501459536,
-      "stocks": [
-        {
-          "code": "603533",
-          "name": "掌阅科技",
-          "price": 0.2803,
-          "changePct": 0.1001,
-          "change": 0.0255,
-          "volume": 505545,
-          "turnover": 1358070564,
-          "turnoverRate": 0.1152,
-          "volumeRatio": 0.0091,
-          "high": 0.2803,
-          "low": 0.2515,
-          "open": 0.255,
-          "prevClose": 0.2548,
-          "marketCap": 12302278285,
-          "floatCap": 12302278285,
-          "mainInflow": 267694282
-        }
-      ]
-    },
-    {
-      "code": "BK1331",
-      "name": "数字芯片设计",
-      "changePct": 5.16,
-      "turnover": 105036609408,
-      "upCount": 54,
-      "downCount": 2,
-      "leader": "富瀚微",
-      "leaderChangePct": 20,
-      "mainInflow": 5727428352,
-      "stocks": [
-        {
-          "code": "603986",
-          "name": "兆易创新",
-          "price": 2.8988,
-          "changePct": 0.07769999999999999,
-          "change": 0.209,
-          "volume": 433107,
-          "turnover": 12278194228,
-          "turnoverRate": 0.0646,
-          "volumeRatio": 0.013600000000000001,
-          "high": 2.9252999999999996,
-          "low": 2.7672000000000003,
-          "open": 2.79,
-          "prevClose": 2.6898,
-          "marketCap": 204067237259,
-          "floatCap": 194427828631,
-          "mainInflow": 1763579920
-        },
-        {
-          "code": "603893",
-          "name": "瑞芯微",
-          "price": 2.0632,
-          "changePct": 0.069,
-          "change": 0.1332,
-          "volume": 172930,
-          "turnover": 3493170271,
-          "turnoverRate": 0.0408,
-          "volumeRatio": 0.0096,
-          "high": 2.0947,
-          "low": 1.926,
-          "open": 1.96,
-          "prevClose": 1.93,
-          "marketCap": 87355217460,
-          "floatCap": 87345314100,
-          "mainInflow": 172529360
-        },
-        {
-          "code": "002213",
-          "name": "大为股份",
-          "price": 0.2248,
-          "changePct": 0.0412,
-          "change": 0.0089,
-          "volume": 85454,
-          "turnover": 190583038.56,
-          "turnoverRate": 0.0412,
-          "volumeRatio": 0.0106,
-          "high": 0.2281,
-          "low": 0.218,
-          "open": 0.22,
-          "prevClose": 0.2159,
-          "marketCap": 5405901447,
-          "floatCap": 4657816413,
-          "mainInflow": 4490957
-        },
-        {
-          "code": "603316",
-          "name": "诚邦股份",
-          "price": 0.1217,
-          "changePct": 0.035699999999999996,
-          "change": 0.0042,
-          "volume": 96507,
-          "turnover": 116520363,
-          "turnoverRate": 0.0365,
-          "volumeRatio": 0.010700000000000001,
-          "high": 0.12269999999999999,
-          "low": 0.1183,
-          "open": 0.1191,
-          "prevClose": 0.1175,
-          "marketCap": 3384271011,
-          "floatCap": 3216092880,
-          "mainInflow": 1278959
-        },
-        {
-          "code": "603501",
-          "name": "豪威集团",
-          "price": 0.852,
-          "changePct": 0.0354,
-          "change": 0.0291,
-          "volume": 196493,
-          "turnover": 1667255507,
-          "turnoverRate": 0.0163,
-          "volumeRatio": 0.0123,
-          "high": 0.865,
-          "low": 0.8278,
-          "open": 0.8440000000000001,
-          "prevClose": 0.8229000000000001,
-          "marketCap": 107214884402,
-          "floatCap": 102891742682,
-          "mainInflow": 33123152
-        },
-        {
-          "code": "001309",
-          "name": "德明利",
-          "price": 2.3056,
-          "changePct": 0.029300000000000003,
-          "change": 0.06559999999999999,
-          "volume": 232505,
-          "turnover": 5324853284.41,
-          "turnoverRate": 0.1,
-          "volumeRatio": 0.0086,
-          "high": 2.3582,
-          "low": 2.2096999999999998,
-          "open": 2.2847999999999997,
-          "prevClose": 2.24,
-          "marketCap": 73221248950,
-          "floatCap": 53586314139,
-          "mainInflow": 105402576
-        }
-      ]
-    }
-  ]
+  "sectors": []
 }
