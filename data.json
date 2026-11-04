@@ -1,6 +1,31 @@
 {
-  "updatedAt": "2026-11-04T07:11:48.144Z",
-  "indices": {},
+  "updatedAt": "2026-11-04T15:25:54.790Z",
+  "indices": {
+    "上证": {
+      "code": "000001",
+      "name": "上证",
+      "price": 3686.17,
+      "changePct": 2.16,
+      "change": 78.07,
+      "turnover": 953265155867.1
+    },
+    "深证": {
+      "code": "399001",
+      "name": "深证",
+      "price": 11335.69,
+      "changePct": 4.22,
+      "change": 458.7,
+      "turnover": 1084429058169.6685
+    },
+    "创业板": {
+      "code": "399006",
+      "name": "创业板",
+      "price": 2544.73,
+      "changePct": 6.4,
+      "change": 153.08,
+      "turnover": 549329528581.74
+    }
+  },
   "sectors": [
     {
       "code": "BK1326",
