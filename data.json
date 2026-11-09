@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-09T07:35:35.808Z",
+  "updatedAt": "2026-11-09T17:47:19.014Z",
   "indices": {
     "上证": {
       "code": "000001",
@@ -1284,14 +1284,14 @@
           "change": 0.038900000000000004,
           "volume": 841738,
           "turnover": 6468686461.7,
-          "turnoverRate": 0.0437,
+          "turnoverRate": 0.0436,
           "volumeRatio": 0.0104,
           "high": 0.7979999999999999,
           "low": 0.721,
           "open": 0.7448999999999999,
           "prevClose": 0.7321,
-          "marketCap": 148691615326,
-          "floatCap": 148575055469,
+          "marketCap": 149145181365,
+          "floatCap": 149002606040,
           "mainInflow": 431239632
         },
         {
